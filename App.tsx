@@ -25,7 +25,7 @@ const App: React.FC = () => {
              <div className="mb-10 relative">
                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-56 h-56 bg-blue-300 rounded-full blur-3xl opacity-30 animate-pulse"></div>
                  <h1 className="relative text-7xl md:text-9xl font-black text-blue-600 tracking-tight mb-2">OA</h1>
-                 <p className="relative text-2xl md:text-3xl text-gray-500 font-bold">Word Explorer</p>
+                 <p className="relative text-2xl md:text-3xl text-gray-500 font-bold">Words Explorer</p>
              </div>
              
              <div className="grid gap-5 w-full max-w-sm">
@@ -67,7 +67,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen pb-24 md:pb-0 md:pt-24 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50">
+    <div className="min-h-screen pb-24 md:pb-0 md:pt-24 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 print:bg-white">
       <header className="fixed top-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-sm z-40 hidden md:block border-b border-gray-200 no-print">
           <div className="max-w-5xl mx-auto flex justify-between items-center">
               <span className="font-black text-2xl text-blue-600 flex items-center gap-2 cursor-pointer" onClick={() => setMode(AppMode.HOME)}>
@@ -76,7 +76,7 @@ const App: React.FC = () => {
           </div>
       </header>
       
-      <main className="max-w-5xl mx-auto p-4 pt-8 md:pt-4">
+      <main className="max-w-5xl mx-auto p-4 pt-8 md:pt-4 print:p-0">
         {renderContent()}
       </main>
 

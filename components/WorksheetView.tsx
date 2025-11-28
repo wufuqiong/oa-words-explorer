@@ -32,20 +32,20 @@ const WorksheetView: React.FC = () => {
       <div className="p-8 md:p-0 space-y-0 text-black">
         
         {/* --- Page 1: Printable Flashcards --- */}
-        <section className="print-page w-full h-[297mm] relative p-8 box-border">
-            <div className="flex justify-between items-end border-b-4 border-gray-800 pb-4 mb-8">
-                <h1 className="text-4xl font-bold">Word Flashcards</h1>
-                <div className="text-xl text-gray-400">Cut along dotted lines</div>
+        <section className="print-page w-full min-h-[297mm] p-[15mm] box-border">
+            <div className="flex justify-between items-end border-b-4 border-gray-800 pb-3 mb-6">
+                <h1 className="text-3xl font-bold">Word Flashcards</h1>
+                <div className="text-lg text-gray-400">Cut along dotted lines</div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3">
                 {OA_WORDS.slice(0, 8).map((item, idx) => (
-                    <div key={idx} className="break-inside-avoid border-4 border-dashed border-gray-300 rounded-3xl p-6 flex flex-col items-center justify-center h-[60mm]">
-                        <div className="flex justify-between w-full items-center px-4">
-                             <span className="text-7xl">{item.emoji}</span>
+                    <div key={idx} className="break-inside-avoid border-4 border-dashed border-gray-300 rounded-2xl p-4 flex flex-col items-center justify-center h-[55mm]">
+                        <div className="flex justify-between w-full items-center px-3">
+                             <span className="text-5xl">{item.emoji}</span>
                              <div className="text-right">
-                                 <div className="text-5xl font-bold">{item.word}</div>
-                                 <div className="text-3xl text-gray-500 mt-1 font-sans">{item.chineseWord}</div>
+                                 <div className="text-3xl font-bold">{item.word}</div>
+                                 <div className="text-xl text-gray-500 mt-1 font-sans">{item.chineseWord}</div>
                              </div>
                         </div>
                     </div>
@@ -55,62 +55,63 @@ const WorksheetView: React.FC = () => {
 
         <div className="page-break"></div>
 
-         <section className="print-page w-full h-[297mm] relative p-8 box-border">
-            <div className="flex justify-between items-end border-b-4 border-gray-800 pb-4 mb-8">
-                <h1 className="text-4xl font-bold">Word Flashcards (Cont.)</h1>
+        {/* --- Page 2: Flashcards Continued --- */}
+        <section className="print-page w-full min-h-[297mm] p-[15mm] box-border">
+            <div className="flex justify-between items-end border-b-4 border-gray-800 pb-3 mb-6">
+                <h1 className="text-3xl font-bold">Word Flashcards (Cont.)</h1>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3">
                 {OA_WORDS.slice(8).map((item, idx) => (
-                    <div key={idx} className="break-inside-avoid border-4 border-dashed border-gray-300 rounded-3xl p-6 flex flex-col items-center justify-center h-[60mm]">
-                        <div className="flex justify-between w-full items-center px-4">
-                             <span className="text-7xl">{item.emoji}</span>
+                    <div key={idx} className="break-inside-avoid border-4 border-dashed border-gray-300 rounded-2xl p-4 flex flex-col items-center justify-center h-[55mm]">
+                        <div className="flex justify-between w-full items-center px-3">
+                             <span className="text-5xl">{item.emoji}</span>
                              <div className="text-right">
-                                 <div className="text-5xl font-bold">{item.word}</div>
-                                 <div className="text-3xl text-gray-500 mt-1 font-sans">{item.chineseWord}</div>
+                                 <div className="text-3xl font-bold">{item.word}</div>
+                                 <div className="text-xl text-gray-500 mt-1 font-sans">{item.chineseWord}</div>
                              </div>
                         </div>
                     </div>
                 ))}
                 {/* Empty spacers to fill grid if needed */}
-                <div className="break-inside-avoid border-4 border-dashed border-gray-100 rounded-3xl p-6 flex flex-col items-center justify-center h-[60mm] opacity-20">
-                    <span className="text-3xl">Great Job!</span>
+                <div className="break-inside-avoid border-4 border-dashed border-gray-100 rounded-2xl p-4 flex flex-col items-center justify-center h-[55mm] opacity-20">
+                    <span className="text-xl">Great Job!</span>
                 </div>
-                <div className="break-inside-avoid border-4 border-dashed border-gray-100 rounded-3xl p-6 flex flex-col items-center justify-center h-[60mm] opacity-20">
-                    <span className="text-3xl">Keep Learning!</span>
+                <div className="break-inside-avoid border-4 border-dashed border-gray-100 rounded-2xl p-4 flex flex-col items-center justify-center h-[55mm] opacity-20">
+                    <span className="text-xl">Keep Learning!</span>
                 </div>
             </div>
         </section>
 
         <div className="page-break"></div>
 
-        {/* --- Page 2: Writing Practice --- */}
-        <section className="print-page w-full min-h-[297mm] p-8 box-border">
-            <div className="flex justify-between items-end border-b-4 border-gray-800 pb-4 mb-8">
-                <h1 className="text-4xl font-bold">Writing Practice</h1>
-                <div className="text-xl font-bold text-gray-400">Name: ____________________</div>
+        {/* --- Page 3: Writing Practice --- */}
+        <section className="print-page w-full min-h-[297mm] p-[15mm] box-border">
+            <div className="flex justify-between items-end border-b-4 border-gray-800 pb-3 mb-6">
+                <h1 className="text-3xl font-bold">Writing Practice</h1>
+                <div className="text-lg font-bold text-gray-400">Name: ____________________</div>
             </div>
 
-            <div className="space-y-5">
+            <div className="space-y-3">
                 {OA_WORDS.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-4 h-20 border-b border-gray-200 pb-1">
+                    <div key={idx} className="flex items-center gap-3 h-16 border-b border-gray-200 pb-1">
                         {/* Emoji */}
-                        <div className="w-20 text-center text-5xl grayscale opacity-70">
+                        <div className="w-16 text-center text-4xl grayscale opacity-70">
                             {item.emoji}
                         </div>
                         
                         {/* Trace Word */}
-                        <div className="w-32 text-5xl font-sans font-bold text-gray-200 tracking-wider">
+                        <div className="w-28 text-3xl font-sans font-bold text-gray-200 tracking-wide">
                             {item.word}
                         </div>
 
                          {/* Chinese Hint */}
-                        <div className="w-16 text-xl text-gray-400 font-sans">
+                        <div className="w-14 text-lg text-gray-400 font-sans">
                             {item.chineseWord}
                         </div>
 
                         {/* Writing Lines */}
-                        <div className="flex-1 flex flex-col gap-4 px-2">
+                        <div className="flex-1 flex flex-col gap-2 px-2">
                              <div className="border-b-2 border-dashed border-gray-300 h-full w-full relative"></div>
                              <div className="border-b-2 border-dashed border-gray-300 h-full w-full relative"></div>
                         </div>
@@ -121,33 +122,33 @@ const WorksheetView: React.FC = () => {
 
         <div className="page-break"></div>
 
-        {/* --- Page 3: Matching --- */}
-        <section className="print-page w-full min-h-[297mm] p-8 box-border pt-12">
-             <div className="flex justify-between items-end border-b-4 border-gray-800 pb-4 mb-8">
-                <h1 className="text-4xl font-bold">Match the Word</h1>
-                <div className="text-xl font-bold text-gray-400">Name: ____________________</div>
+        {/* --- Page 4: Matching --- */}
+        <section className="print-page w-full min-h-[297mm] p-[15mm] box-border pt-8">
+             <div className="flex justify-between items-end border-b-4 border-gray-800 pb-3 mb-6">
+                <h1 className="text-3xl font-bold">Match the Word</h1>
+                <div className="text-lg font-bold text-gray-400">Name: ____________________</div>
             </div>
             
-            <p className="text-2xl text-gray-600 mb-8 italic">Draw a line from the picture to the correct word.</p>
+            <p className="text-xl text-gray-600 mb-6 italic">Draw a line from the picture to the correct word.</p>
 
-            <div className="flex justify-between px-12 gap-20">
+            <div className="flex justify-between px-8 gap-12">
                 {/* Left Column: Emojis */}
-                <div className="flex flex-col gap-8 w-1/3">
+                <div className="flex flex-col gap-4 w-2/5">
                     {OA_WORDS.map((item, idx) => (
-                        <div key={`left-${idx}`} className="h-28 flex items-center justify-center bg-gray-50 border-2 border-gray-200 rounded-2xl relative break-inside-avoid">
-                            <span className="text-6xl">{item.emoji}</span>
-                            <div className="absolute -right-3 w-5 h-5 bg-black rounded-full"></div>
+                        <div key={`left-${idx}`} className="h-20 flex items-center justify-center bg-gray-50 border-2 border-gray-200 rounded-xl relative break-inside-avoid">
+                            <span className="text-4xl">{item.emoji}</span>
+                            <div className="absolute -right-2 w-4 h-4 bg-black rounded-full"></div>
                         </div>
                     ))}
                 </div>
 
                 {/* Right Column: Words (Shuffled) */}
-                <div className="flex flex-col gap-8 w-1/3">
+                <div className="flex flex-col gap-4 w-2/5">
                     {shuffledWordsForMatching.map((item, idx) => (
-                        <div key={`right-${idx}`} className="h-28 flex flex-col items-center justify-center border-2 border-gray-200 rounded-2xl relative break-inside-avoid">
-                            <span className="text-4xl font-bold tracking-wide">{item.word}</span>
-                            <span className="text-lg text-gray-400 mt-1">{item.chineseWord}</span>
-                            <div className="absolute -left-3 w-5 h-5 bg-black rounded-full"></div>
+                        <div key={`right-${idx}`} className="h-20 flex flex-col items-center justify-center border-2 border-gray-200 rounded-xl relative break-inside-avoid">
+                            <span className="text-2xl font-bold tracking-wide">{item.word}</span>
+                            <span className="text-sm text-gray-400 mt-1">{item.chineseWord}</span>
+                            <div className="absolute -left-2 w-4 h-4 bg-black rounded-full"></div>
                         </div>
                     ))}
                 </div>
@@ -156,42 +157,42 @@ const WorksheetView: React.FC = () => {
 
         <div className="page-break"></div>
 
-        {/* --- Page 4: Fill in the Blanks --- */}
-        <section className="print-page w-full min-h-[297mm] p-8 box-border pt-12">
-             <div className="flex justify-between items-end border-b-4 border-gray-800 pb-4 mb-8">
-                <h1 className="text-4xl font-bold">Fill in the Blanks</h1>
-                <div className="text-xl font-bold text-gray-400">Name: ____________________</div>
+        {/* --- Page 5: Fill in the Blanks --- */}
+        <section className="print-page w-full min-h-[297mm] p-[15mm] box-border pt-8">
+             <div className="flex justify-between items-end border-b-4 border-gray-800 pb-3 mb-6">
+                <h1 className="text-3xl font-bold">Fill in the Blanks</h1>
+                <div className="text-lg font-bold text-gray-400">Name: ____________________</div>
             </div>
 
             {/* Word Bank */}
-            <div className="bg-gray-100 p-8 rounded-3xl mb-12 border-2 border-gray-300">
-                <h3 className="text-2xl font-bold mb-6 text-gray-500 uppercase tracking-widest text-center">Word Bank</h3>
-                <div className="flex flex-wrap gap-6 justify-center">
+            <div className="bg-gray-100 p-4 rounded-2xl mb-8 border-2 border-gray-300">
+                <h3 className="text-xl font-bold mb-4 text-gray-500 uppercase tracking-widest text-center">Word Bank</h3>
+                <div className="flex flex-wrap gap-3 justify-center">
                     {OA_WORDS.map(w => (
-                        <div key={w.word} className="flex flex-col items-center bg-white px-5 py-2 rounded-xl border border-gray-300 shadow-sm">
-                            <span className="text-2xl font-bold">{w.word}</span>
+                        <div key={w.word} className="flex flex-col items-center bg-white px-3 py-1 rounded-lg border border-gray-300 shadow-sm">
+                            <span className="text-lg font-bold">{w.word}</span>
                         </div>
                     ))}
                 </div>
             </div>
 
             {/* Sentences */}
-            <div className="space-y-8 pl-4">
+            <div className="space-y-4 pl-2">
                 {OA_WORDS.map((item, idx) => {
                     const parts = item.sentence.split(new RegExp(`(${item.word})`, 'gi'));
                     return (
                         <div key={idx} className="break-inside-avoid">
-                            <div className="text-2xl leading-loose font-medium flex items-baseline gap-2">
-                                <span className="font-bold text-gray-400 mr-4">{idx + 1}.</span>
+                            <div className="text-lg leading-relaxed font-medium flex items-baseline gap-1">
+                                <span className="font-bold text-gray-400 mr-3">{idx + 1}.</span>
                                 <span>
                                 {parts.map((part, pIdx) => (
                                     part.toLowerCase() === item.word.toLowerCase() 
-                                    ? <span key={pIdx} className="inline-block w-40 border-b-4 border-black mx-2 relative top-1"></span> 
+                                    ? <span key={pIdx} className="inline-block w-32 border-b-2 border-black mx-1 relative top-1"></span> 
                                     : <span key={pIdx}>{part}</span>
                                 ))}
                                 </span>
                             </div>
-                            <div className="ml-12 text-gray-400 text-lg mt-1">{item.chineseSentence}</div>
+                            <div className="ml-8 text-gray-400 text-sm mt-1">{item.chineseSentence}</div>
                         </div>
                     );
                 })}

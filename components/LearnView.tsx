@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Volume2 } from 'lucide-react';
 import { OA_WORDS } from '../constants';
-import { playTextToSpeech } from '../services/geminiService';
+import { playTextToSpeech } from '../services/Service';
 import Button from './Button';
 
 const LearnView: React.FC = () => {

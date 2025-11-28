@@ -3,7 +3,7 @@ import { OA_WORDS } from '../constants';
 import { WordItem } from '../types';
 import Button from './Button';
 import { Volume2, CheckCircle, XCircle, RefreshCcw } from 'lucide-react';
-import { playTextToSpeech } from '../services/geminiService';
+import { playTextToSpeech } from '../services/Service';
 
 const QuizView: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState<WordItem | null>(null);
