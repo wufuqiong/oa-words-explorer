@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Navigation from './components/Navigation';
 import LearnView from './components/LearnView';
 import QuizView from './components/QuizView';
-import StoryView from './components/StoryView';
 import WorksheetView from './components/WorksheetView';
 import Button from './components/Button';
 import { AppMode } from './types';
@@ -17,8 +16,6 @@ const App: React.FC = () => {
         return <LearnView />;
       case AppMode.PRACTICE:
         return <QuizView />;
-      case AppMode.STORY:
-        return <StoryView />;
       case AppMode.WORKSHEETS:
         return <WorksheetView />;
       case AppMode.HOME:
@@ -47,14 +44,6 @@ const App: React.FC = () => {
                     className="w-full justify-between group py-5"
                  >
                     <span className="text-xl">Practice Games</span> <span className="text-3xl">🎮</span>
-                 </Button>
-                 <Button 
-                    variant="secondary" 
-                    size="lg" 
-                    onClick={() => setMode(AppMode.STORY)}
-                    className="w-full justify-between group bg-purple-50 text-purple-700 border-purple-200 hover:bg-purple-100 py-5"
-                 >
-                    <span className="text-xl">Magic Story</span> <span className="text-3xl">✨</span>
                  </Button>
                  <Button 
                     variant="secondary" 

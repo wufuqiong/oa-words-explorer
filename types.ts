@@ -2,13 +2,14 @@ export interface WordItem {
   word: string;
   emoji: string;
   sentence: string;
+  chineseWord: string;
+  chineseSentence: string;
 }
 
 export enum AppMode {
   HOME = 'HOME',
   LEARN = 'LEARN',
   PRACTICE = 'PRACTICE',
-  STORY = 'STORY',
   WORKSHEETS = 'WORKSHEETS'
 }
 

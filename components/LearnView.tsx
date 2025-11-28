@@ -29,8 +29,6 @@ const LearnView: React.FC = () => {
     await playTextToSpeech(currentWord.word);
     // Small delay to allow audio to start
     setTimeout(() => {
-        // Optionally play sentence too
-        // playTextToSpeech(currentWord.sentence); 
         setIsPlaying(false);
     }, 1000);
   };
@@ -63,9 +61,13 @@ const LearnView: React.FC = () => {
 
           {/* Back */}
           <div className="absolute w-full h-full backface-hidden bg-blue-500 rotate-y-180 rounded-[2rem] shadow-xl flex flex-col items-center justify-center p-8 text-center text-white">
-            <h3 className="text-7xl font-bold mb-8">{currentWord.word}</h3>
-            <p className="text-4xl leading-relaxed font-medium">"{currentWord.sentence}"</p>
-            <div className="mt-12 text-9xl opacity-50">{currentWord.emoji}</div>
+            <h3 className="text-7xl font-bold mb-2">{currentWord.word}</h3>
+            <h4 className="text-5xl font-bold mb-8 text-blue-200">{currentWord.chineseWord}</h4>
+            
+            <p className="text-4xl leading-relaxed font-medium mb-4">"{currentWord.sentence}"</p>
+            <p className="text-2xl leading-relaxed text-blue-100">{currentWord.chineseSentence}</p>
+            
+            <div className="mt-8 text-8xl opacity-30">{currentWord.emoji}</div>
           </div>
         </div>
       </div>

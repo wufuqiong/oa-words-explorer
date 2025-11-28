@@ -60,26 +60,24 @@ export const playTextToSpeech = async (text: string): Promise<void> => {
 };
 
 export const generateStory = async (words: string[]): Promise<string> => {
-    if (!API_KEY) {
-        return "Please configure your API Key to generate a story!";
-    }
+  if (!API_KEY) {
+    console.warn("No API Key provided for Story Generation");
+    return "Please configure the API Key to generate stories.";
+  }
 
-    const prompt = `Write a short, funny, and engaging story for a 6-year-old child using ALL of the following words: ${words.join(', ')}. 
-    Highlight the words in the story by wrapping them in asterisks like *boat*. 
-    Keep sentences simple. 
-    The story should be about an adventure.`;
+  try {
+    const prompt = `Write a short, engaging story for children (approx 100 words) that includes the following words: ${words.join(', ')}. 
+    Please bold each occurrence of these words by wrapping them in single asterisks like *word*. 
+    The story should be fun and easy to read.`;
 
-    try {
-        const response = await ai.models.generateContent({
-            model: "gemini-2.5-flash",
-            contents: prompt,
-            config: {
-                temperature: 0.7,
-            }
-        });
-        return response.text || "Could not generate a story at this time.";
-    } catch (error) {
-        console.error("Error generating story:", error);
-        return "Oops! The story machine is taking a nap. Try again later.";
-    }
-}
+    const response = await ai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: prompt,
+    });
+
+    return response.text || "Could not generate story.";
+  } catch (error) {
+    console.error("Error generating story:", error);
+    return "Sorry, I couldn't write a story right now. Please try again later.";
+  }
+};

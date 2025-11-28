@@ -6,9 +6,10 @@
     <title>OA Word Explorer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
       body {
-        font-family: 'Fredoka', sans-serif;
+        font-family: 'Fredoka', 'Noto Sans SC', sans-serif;
         background-color: #f0fdf4; /* green-50 */
       }
       .blob {
@@ -31,14 +32,25 @@
       }
       
       @media print {
-        @page { margin: 0.5in; }
+        @page { 
+          size: A4; 
+          margin: 1cm; 
+        }
         body { 
           background-color: white !important; 
           -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+          margin: 0;
+          padding: 0;
+        }
+        #root {
+            width: 100%;
         }
         .no-print { display: none !important; }
         .print-only { display: block !important; }
         .page-break { page-break-before: always; }
+        /* Ensure grids don't break awkwardly */
+        .break-inside-avoid { break-inside: avoid; }
       }
     </style>
   <script type="importmap">

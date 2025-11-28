@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, BookOpen, Gamepad2, Sparkles, Printer } from 'lucide-react';
+import { Home, BookOpen, Gamepad2, Printer } from 'lucide-react';
 import { AppMode } from '../types';
 
 interface NavigationProps {
@@ -12,7 +12,6 @@ const Navigation: React.FC<NavigationProps> = ({ currentMode, setMode }) => {
     { mode: AppMode.HOME, label: 'Home', icon: <Home size={20} /> },
     { mode: AppMode.LEARN, label: 'Learn', icon: <BookOpen size={20} /> },
     { mode: AppMode.PRACTICE, label: 'Play', icon: <Gamepad2 size={20} /> },
-    { mode: AppMode.STORY, label: 'Story', icon: <Sparkles size={20} /> },
     { mode: AppMode.WORKSHEETS, label: 'Print', icon: <Printer size={20} /> },
   ];
 
