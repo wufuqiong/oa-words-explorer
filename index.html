@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OA Words Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Print Styles */
+    @media print {
+      @page { 
+        size: A4; 
+        margin: 15mm;
+      }
+      body { 
+        background-color: white !important; 
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        margin: 0;
+        padding: 0;
+        font-family: 'Fredoka', 'Noto Sans SC', sans-serif !important;
+        font-size: 12pt;
+        line-height: 1.2;
+      }
+      #root, #root > * {
+        width: 100% !important;
+        max-width: 100% !important;
+        background: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+      }
+      .no-print { 
+        display: none !important; 
+      }
+      .print-page {
+        min-height: 297mm !important;
+        height: 297mm !important;
+        page-break-after: always;
+        page-break-inside: avoid;
+      }
+      /* Ensure proper page breaks */
+      .page-break { 
+        page-break-before: always; 
+      }
+      .break-inside-avoid { 
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      /* Remove any background colors that might interfere */
+      * {
+        background: transparent !important;
+      }
+      /* Ensure text is black for printing */
+      * {
+        color: black !important;
+        border-color: black !important;
+      }
+      /* Optimize spacing for print */
+      .print-page > * {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  </style>
+
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react-dom/": "https:// atudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/oa-words-explorer/assets/index-CrZHpux-.js"></script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
