@@ -5,29 +5,63 @@ export const playTextToSpeech = async (text: string): Promise<void> => {
   }
 
   try {
+    // Cancel any ongoing speech
+    window.speechSynthesis.cancel();
+
     // Create a new speech synthesis utterance
     const utterance = new SpeechSynthesisUtterance(text);
     
     // Configure voice settings
-    utterance.rate = 1.0;    // Speech rate (0.1 to 10)
-    utterance.pitch = 1.0;   // Speech pitch (0 to 2)
-    utterance.volume = 1.0;  // Speech volume (0 to 1)
+    utterance.rate = 0.8;    // Slower rate for better clarity
+    utterance.pitch = 1.0;
+    utterance.volume = 1.0;
     
-    // Try to find a female voice if available
-    const voices = speechSynthesis.getVoices();
-    const femaleVoice = voices.find(voice => 
-      voice.name.toLowerCase().includes('female') || 
-      voice.lang.includes('en')
-    );
-    
-    if (femaleVoice) {
-      utterance.voice = femaleVoice;
+    // Function to get voices and speak
+    const speak = () => {
+      const voices = window.speechSynthesis.getVoices();
+      console.log('Available voices:', voices); // Debug log
+      
+      // Try to find an English voice (preferably female)
+      const englishVoice = voices.find(voice => 
+        voice.lang.startsWith('en') || 
+        voice.lang.includes('US') ||
+        voice.lang.includes('GB')
+      );
+      
+      if (englishVoice) {
+        utterance.voice = englishVoice;
+        console.log('Using voice:', englishVoice.name, englishVoice.lang);
+      } else if (voices.length > 0) {
+        // Fallback to first available voice
+        utterance.voice = voices[0];
+        console.log('Using fallback voice:', voices[0].name);
+      }
+      
+      // Play the speech
+      window.speechSynthesis.speak(utterance);
+    };
+
+    // Check if voices are already loaded
+    const voices = window.speechSynthesis.getVoices();
+    if (voices.length > 0) {
+      speak();
+    } else {
+      // Wait for voices to load
+      window.speechSynthesis.onvoiceschanged = speak;
     }
-    
-    // Play the speech
-    window.speechSynthesis.speak(utterance);
     
   } catch (error) {
     console.error("Error with speech synthesis:", error);
   }
 };
+
+// Preload voices when the page loads
+if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+  // Trigger voices to load
+  window.speechSynthesis.getVoices();
+  
+  // Re-trigger after a short delay to ensure voices are loaded
+  setTimeout(() => {
+    window.speechSynthesis.getVoices();
+  }, 1000);
+}
