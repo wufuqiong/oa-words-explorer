@@ -65,10 +65,52 @@ export const OA_WORDS: WordItem[] = [
     chineseSentence: '天冷时穿上外套。'
   },
   { 
-    word: 'foam', 
-    emoji: '🫧', 
-    sentence: 'The waves made white foam.',
-    chineseWord: '泡沫',
-    chineseSentence: '海浪激起了白色的泡沫。'
+    word: 'toast', 
+    emoji: '🍞', 
+    sentence: 'I ate warm toast for breakfast.',
+    chineseWord: '吐司',
+    chineseSentence: '我早餐吃了温热的吐司。'
   },
+  { 
+    word: 'loaf', 
+    emoji: '🍞', 
+    sentence: 'The baker made a fresh loaf of bread.',
+    chineseWord: '一条面包',
+    chineseSentence: '面包师做了一条新鲜的面包。'
+  },
+  { 
+    word: 'cloak', 
+    emoji: '🧙‍♂️', 
+    sentence: 'The wizard wore a long cloak.',
+    chineseWord: '披风',
+    chineseSentence: '魔法师穿着一件长披风。'
+  },
+  { 
+    word: 'croak', 
+    emoji: '🐸', 
+    sentence: 'I heard a frog croak by the pond.',
+    chineseWord: '呱呱叫',
+    chineseSentence: '我听到池塘旁一只青蛙在呱呱叫。'
+  },
+  { 
+    word: 'float', 
+    emoji: '🎈', 
+    sentence: 'The balloon can float in the air.',
+    chineseWord: '漂浮',
+    chineseSentence: '这个气球可以漂浮在空中。'
+  },
+  { 
+    word: 'coach', 
+    emoji: '🚌', 
+    sentence: 'We rode a coach to the museum.',
+    chineseWord: '长途巴士',
+    chineseSentence: '我们坐长途巴士去博物馆。'
+  },
+  {
+    word: 'toad',
+    emoji: '🐸',
+    sentence: 'The toad hopped into the grass.',
+    chineseWord: '蟾蜍',
+    chineseSentence: '那只蟾蜍跳进了草丛里。'
+  }
 ];
