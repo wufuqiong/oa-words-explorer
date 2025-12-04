@@ -1,12 +1,12 @@
 import { WordItem } from './types';
 
 export const OA_WORDS: WordItem[] = [
-  { 
-    word: 'boat', 
-    emoji: '🛥️', 
-    sentence: 'The boat floats on the water.',
-    chineseWord: '小船',
-    chineseSentence: '小船漂浮在水面上。'
+  {
+    word: 'foam',
+    emoji: '🫧',
+    sentence: 'The waves made white foam.',
+    chineseWord: '泡沫',
+    chineseSentence: '海浪激起了白色的泡沫。'
   },
   { 
     word: 'soap', 
